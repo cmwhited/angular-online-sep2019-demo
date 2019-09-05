@@ -1,0 +1,24 @@
+{
+  "npmScope": "angular-online-sep2019-demo",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "angular-online-sep2019-demo-e2e": {
+      "tags": []
+    },
+    "angular-online-sep2019-demo": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
