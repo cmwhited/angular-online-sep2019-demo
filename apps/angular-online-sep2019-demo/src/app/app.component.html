@@ -1,8 +1,12 @@
-<div style="text-align:center">
-  <h1>Welcome to angular-online-sep2019-demo!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<main class="main-content-container">
+  <mat-toolbar color="primary" class="main-toolbar">
+    <mat-toolbar-row>
+      <h1>Angular & Apollo Demo</h1>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="main-content">
+    <div class="main-content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>

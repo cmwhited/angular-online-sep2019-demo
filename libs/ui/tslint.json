@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "angularOnlineSep2019Demo", "camelCase"],
+    "component-selector": [true, "element", "angular-online-sep2019-demo", "kebab-case"]
+  }
+}

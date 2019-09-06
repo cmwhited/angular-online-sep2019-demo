@@ -1,0 +1,56 @@
+enum UserRole {
+  USER
+  ADMIN
+}
+
+type Comment {
+  id: Int!
+  userId: Int!
+  comment: String!
+}
+
+type User {
+  id: Int!
+  email: String!
+  name: String!
+  role: UserRole!
+  age: Int!
+  comments: [Comment]
+}
+
+input UserInput {
+  id: Int
+  email: String!
+  name: String!
+  role: UserRole!
+  age: Int!
+}
+
+input CommentInput {
+  id: Int
+  userId: Int!
+  comment: String!
+}
+
+type Query {
+  users: [User]
+  user(id: Int!): User
+}
+
+type Mutation {
+  createUser(user: UserInput!): User
+  updateUser(user: UserInput!): String!
+  deleteUser(id: Int!): String!
+  addComment(comment: CommentInput!): Comment
+  removeComment(id: Int!): String!
+}
+
+type Subscription {
+  commentAdded(userId: Int!): Comment
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
