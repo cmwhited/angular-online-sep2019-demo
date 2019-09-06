@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectInMemoryDBService, InMemoryDBService } from '@nestjs-addons/in-memory-db';
 import { Observable, of } from 'rxjs';
 
-import { User } from '@angular-online-sep2019-demo/api-interfaces';
+import { User } from './interfaces';
 
 @Injectable()
 export class UserService {

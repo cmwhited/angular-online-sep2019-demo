@@ -3,8 +3,8 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { Comment as CommentType, CommentInput } from '../app-schema.graphql';
-import { Comment } from '@angular-online-sep2019-demo/api-interfaces';
+import { Comment as CommentType, CommentInput } from '@angular-online-sep2019-demo/api-interfaces';
+import { Comment } from './interfaces';
 import { CommentService } from './comment.service';
 
 @Resolver('Comment')

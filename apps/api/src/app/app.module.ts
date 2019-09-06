@@ -17,7 +17,7 @@ import { AppService } from './app.service';
       debug: true,
       playground: true,
       definitions: {
-        path: join(process.cwd(), 'apps/api/src/app-schema.graphql.ts'),
+        path: join(process.cwd(), 'libs/api-interfaces/src/lib/app-schema.graphql.ts'),
       },
       installSubscriptionHandlers: true,
     }),

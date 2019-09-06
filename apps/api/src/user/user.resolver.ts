@@ -4,8 +4,9 @@ import { PubSub } from 'graphql-subscriptions';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { User as UserType, UserInput, Comment as CommentType } from '../app-schema.graphql';
-import { User, Comment } from '@angular-online-sep2019-demo/api-interfaces';
+import { User as UserType, UserInput, Comment as CommentType } from '@angular-online-sep2019-demo/api-interfaces';
+import { User } from './interfaces';
+import { Comment } from '../comment/interfaces';
 import { UserService } from './user.service';
 import { CommentService } from '../comment/comment.service';
 
