@@ -22,6 +22,11 @@ export interface UserInput {
     name: string;
     role: UserRole;
     age: number;
+    profilePicUrl?: string;
+}
+
+export interface ApiResponse {
+    message: string;
 }
 
 export interface Comment {
@@ -32,10 +37,10 @@ export interface Comment {
 
 export interface IMutation {
     createUser(user: UserInput): User | Promise<User>;
-    updateUser(user: UserInput): string | Promise<string>;
-    deleteUser(id: number): string | Promise<string>;
+    updateUser(user: UserInput): ApiResponse | Promise<ApiResponse>;
+    deleteUser(id: number): ApiResponse | Promise<ApiResponse>;
     addComment(comment: CommentInput): Comment | Promise<Comment>;
-    removeComment(id: number): string | Promise<string>;
+    removeComment(id: number): ApiResponse | Promise<ApiResponse>;
 }
 
 export interface IQuery {
@@ -53,5 +58,6 @@ export interface User {
     name: string;
     role: UserRole;
     age: number;
+    profilePicUrl?: string;
     comments?: Comment[];
 }

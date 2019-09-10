@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Add User Comment</h2>
+<div mat-dialog-content>
+  <form novalidate [formGroup]="formGroup" *ngIf="formGroup">
+    <mat-form-field appearance="outline" class="full-width-input" color="primary">
+      <mat-label>Comment</mat-label>
+      <textarea matInput required formControlName="comment" rows="4"></textarea>
+      <mat-error *ngIf="formGroup.get('comment').touched && formGroup.get('comment').invalid">
+        A comment is required to add a comment. What are you doing here?
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="accent" type="submit" (click)="onSaveComment(formGroup.value)" [disabled]="formGroup.invalid">
+    Submit
+  </button>
+  <button mat-icon-button color="primary" (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

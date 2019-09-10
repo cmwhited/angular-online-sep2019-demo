@@ -4,7 +4,7 @@ import { PubSub } from 'graphql-subscriptions';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { User as UserType, UserInput, Comment as CommentType } from '@angular-online-sep2019-demo/api-interfaces';
+import { User as UserType, UserInput, Comment as CommentType, ApiResponse } from '@angular-online-sep2019-demo/api-interfaces';
 import { User } from './interfaces';
 import { Comment } from '../comment/interfaces';
 import { UserService } from './user.service';
@@ -40,21 +40,37 @@ export class UserResolver {
   }
 
   @Mutation('updateUser')
-  updateUser(@Args('user') userInput: UserInput): Observable<string> {
+  updateUser(@Args('user') userInput: UserInput): Observable<ApiResponse> {
     this.logger.log(`updateUser() - update user record with id ${userInput.id}`);
     const user: User = userInput as User;
     return this.userService.update(user).pipe(
-      map(() => of('Success')),
-      catchError(err => of(err)),
+      map((message: string) => {
+        const resp: ApiResponse = { message };
+        return resp;
+      }),
+      catchError(err => {
+        const resp: ApiResponse = {
+          message: err,
+        };
+        return of(resp);
+      }),
     );
   }
 
   @Mutation('deleteUser')
-  deleteUser(@Args('id') id: number): Observable<string> {
+  deleteUser(@Args('id') id: number): Observable<ApiResponse> {
     this.logger.log(`deleteUser() - delete user record with id ${id}`);
     return this.userService.delete(id).pipe(
-      map(() => of('Success')),
-      catchError(err => of(err)),
+      map((message: string) => {
+        const resp: ApiResponse = { message };
+        return resp;
+      }),
+      catchError(err => {
+        const resp: ApiResponse = {
+          message: err,
+        };
+        return of(resp);
+      }),
     );
   }
 

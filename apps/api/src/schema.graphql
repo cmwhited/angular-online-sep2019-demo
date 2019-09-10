@@ -1,3 +1,7 @@
+type ApiResponse {
+  message: String!
+}
+
 enum UserRole {
   USER
   ADMIN
@@ -15,6 +19,7 @@ type User {
   name: String!
   role: UserRole!
   age: Int!
+  profilePicUrl: String
   comments: [Comment]
 }
 
@@ -24,6 +29,7 @@ input UserInput {
   name: String!
   role: UserRole!
   age: Int!
+  profilePicUrl: String
 }
 
 input CommentInput {
@@ -39,10 +45,10 @@ type Query {
 
 type Mutation {
   createUser(user: UserInput!): User
-  updateUser(user: UserInput!): String!
-  deleteUser(id: Int!): String!
+  updateUser(user: UserInput!): ApiResponse!
+  deleteUser(id: Int!): ApiResponse!
   addComment(comment: CommentInput!): Comment
-  removeComment(id: Int!): String!
+  removeComment(id: Int!): ApiResponse!
 }
 
 type Subscription {

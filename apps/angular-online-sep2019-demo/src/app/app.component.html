@@ -2,6 +2,15 @@
   <mat-toolbar color="primary" class="main-toolbar">
     <mat-toolbar-row>
       <h1>Angular & Apollo Demo</h1>
+      <span class="fill-space"></span>
+      <span>
+        <button mat-button [routerLink]="['/users/list']" routerLinkActive="router-link-active">
+          User List
+        </button>
+        <button mat-button [routerLink]="['/users/create']" routerLinkActive="router-link-active">
+          Create User
+        </button>
+      </span>
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="main-content">

@@ -8,6 +8,26 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular-online-sep2019-demo-primary: mat-palette($mat-blue-grey, 600, 400, 800);
+$angular-online-sep2019-demo-accent: mat-palette($mat-teal, 800, 900, 500);
+$angular-online-sep2019-demo-warn: mat-palette($mat-red, 900, 500, A700);
+
+// Create the theme object (a Sass map containing all of the palettes).
+// If you prefer a dark theme, switch to mat-dark-theme and it will switch over to your darker hues
+$angular-online-sep2019-demo-theme: mat-light-theme(
+  $angular-online-sep2019-demo-primary,
+  $angular-online-sep2019-demo-accent,
+  $angular-online-sep2019-demo-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-online-sep2019-demo-theme);
+
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
 $custom-typography: mat-typography-config(
@@ -29,4 +49,12 @@ body {
 body {
   margin: 0;
   font-family: 'Cutive Mono', monospace;
+}
+
+.full-width-input {
+  display: block;
+  width: 100%;
+}
+.fill-space {
+  flex: 1 1 auto;
 }

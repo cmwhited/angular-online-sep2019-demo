@@ -1,0 +1,10 @@
+<angular-online-sep2019-demo-loading *ngIf="(loading$ | async)" message="Loading Users List..."></angular-online-sep2019-demo-loading>
+<angular-online-sep2019-demo-error
+  *ngIf="(errors$ | async)"
+  message="Failure Querying for the User"
+  [errors]="errors$ | async"
+></angular-online-sep2019-demo-error>
+<angular-online-sep2019-demo-user-details
+  [user]="user$ | async"
+  (addComment)="onAddComment($event)"
+></angular-online-sep2019-demo-user-details>

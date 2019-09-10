@@ -1,0 +1,6 @@
+<angular-online-sep2019-demo-user-form
+  message="Update User"
+  [roles]="roles$ | async"
+  [user]="user$ | async"
+  (saveUser)="onUpdateUser($event)"
+></angular-online-sep2019-demo-user-form>

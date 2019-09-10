@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Users List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.role }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.age }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="info">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" [matMenuTriggerFor]="userOptsMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #userOptsMenu="matMenu">
+            <ng-template matMenuContent>
+              <button mat-menu-item [routerLink]="['/users/details', element.id]">
+                <mat-icon color="primary">info_circle</mat-icon>
+                <span>Details</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/users/update', element.id]">
+                <mat-icon color="accent">edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item [routerLink]="['/users/delete', element.id]">
+                <mat-icon color="warn">delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </ng-template>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

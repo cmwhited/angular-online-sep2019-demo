@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="warn">
+      <mat-toolbar-row>
+        <h1 class="mat-headline">{{ message }}</h1>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div *ngIf="error">
+      {{ error }}
+    </div>
+    <div *ngIf="errors && errors.length > 0">
+      <mat-list>
+        <mat-list-item *ngFor="let err of errors">
+          <h3 matLine>{{ err }}</h3>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>

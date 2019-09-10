@@ -20,13 +20,13 @@ export class UserService {
     return this.userService.createAsync(user);
   }
 
-  update(user: User): Observable<void> {
+  update(user: User): Observable<string> {
     this.userService.updateAsync(user);
-    return of();
+    return of('Success');
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: number): Observable<string> {
     this.userService.deleteAsync(id);
-    return of();
+    return of('Success');
   }
 }

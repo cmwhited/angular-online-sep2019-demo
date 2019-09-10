@@ -3,7 +3,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { Comment as CommentType, CommentInput } from '@angular-online-sep2019-demo/api-interfaces';
+import { Comment as CommentType, CommentInput, ApiResponse } from '@angular-online-sep2019-demo/api-interfaces';
 import { Comment } from './interfaces';
 import { CommentService } from './comment.service';
 
@@ -21,11 +21,21 @@ export class CommentResolver {
   }
 
   @Mutation('removeComment')
-  removeComment(@Args('id') id: number): Observable<string> {
+  removeComment(@Args('id') id: number): Observable<ApiResponse> {
     this.logger.log(`removeComment() - delete comment record with id ${id}`);
     return this.commentService.delete(id).pipe(
-      map(() => of('Success')),
-      catchError(err => of(err)),
+      map(() => {
+        const resp: ApiResponse = {
+          message: 'Success',
+        };
+        return resp;
+      }),
+      catchError(err => {
+        const resp: ApiResponse = {
+          message: err,
+        };
+        return of(resp);
+      }),
     );
   }
 }

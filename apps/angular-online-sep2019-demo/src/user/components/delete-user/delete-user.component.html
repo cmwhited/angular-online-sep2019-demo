@@ -1,0 +1,37 @@
+<mat-card *ngIf="user">
+  <mat-card-content>
+    <mat-toolbar color="warn">
+      <mat-toolbar-row>
+        <h2 class="mat-heading">Delete User?</h2>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <p class="mat-caption">
+          Are you sure you would like to delete this user?
+        </p>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon matListIcon>person</mat-icon>
+        <h3 matLine>{{ user.name }}</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>email</mat-icon>
+        <h3 matLine>{{ user.email }}</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>cake</mat-icon>
+        <h3 matLine>{{ user.age }}</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>build</mat-icon>
+        <h3 matLine>{{ user.role }}</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" mat-stroked-button color="primary" [routerLink]="['/users/list']">Return to Users List</button>
+    <span class="fill-sp ace"></span>
+    <button type="button" mat-raised-button color="warn" (click)="onDeleteUser()">Drop Em</button>
+  </mat-card-actions>
+</mat-card>
