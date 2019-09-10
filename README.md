@@ -1,4 +1,16 @@
-# AngularOnlineSep2019Demo
+# Angular Online Sep. 2019 Demo
+
+This repo was built to support a talk I gave on Utilizing the Power of GraphQL in an Angular App.
+
+Listen to the talk [here](https://www.youtube.com/watch?v=5DyKKLiLsK0&app=desktop).
+
+Check out the slides [here](https://docs.google.com/presentation/d/1r_7_c7E2Gzo-mlbb0OGZbHCNt74nu5o0ss5zVREf4jk/edit?usp=sharing)
+
+The app itself is very simple - it is a monorepo built using the `Nx` framework;
+there is a `NestJs` API that utilizes a `in-memory` lib to expose `User` data to the consuming client by
+exposing a `GraphQL` API. The client is an `Angular` app that utilizes the `apollo-angular` lib to consume data from this API.
+
+## Nx MonoRepo
 
 This project was generated using [Nx](https://nx.dev).
 
@@ -6,7 +18,7 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Quick Start & Documentation
+### Quick Start & Documentation
 
 [Nx Documentation](https://nx.dev/angular)
 
@@ -14,71 +26,27 @@ This project was generated using [Nx](https://nx.dev).
 
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
 
-## Adding capabilities to your workspace
+## Running
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Running just the API:
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+```bash
+ng server api
+```
 
-Below are some plugins which you can add to your workspace:
+Running just the app:
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+```bash
+ng server angular-online-sep2019-demo
+```
 
-## Generate an application
+Running _both_ the API and the App in parallel:
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+```bash
+ng run angular-online-sep2019-demo:serve-with-api
+```
 
-> You can use any of the plugins above to generate applications as well.
+### GraphQL Playground
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@angular-online-sep2019-demo/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+Once the API is running, visit `http://localhost:3001/graphql` to view the GraphQL Playground
+which will give you access to the schema with data types, queries, and mutations.
